@@ -1,0 +1,25 @@
+{
+    "ALBUM": {
+        "album_title": "TRILLIUM HARDTEKK",
+        "album_type": "EP",
+        "album_artists": [
+            "S3RL",
+            "Bearn"
+        ]
+    },
+    "PEOPLE_GROUP": {
+        "Performed by": [
+            "S3RL",
+            "Bearn"
+        ],
+        "Written by": [
+            "Jole Hughes"
+        ],
+        "Produced by": [
+            "S3RL"
+        ],
+        "Music metadata provided by": [
+            "Bearn"
+        ]
+    }
+}

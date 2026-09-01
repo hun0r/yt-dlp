@@ -2328,6 +2328,24 @@ class YoutubeTabIE(YoutubeTabBaseInfoExtractor):
         mobj = self._get_url_mobj(url)
         pre, tab, post, is_channel = mobj['pre'], mobj['tab'], mobj['post'], not mobj['not_channel']
         if is_channel and smuggled_data.get('is_music_url'):
+            '''
+            The following fields should only be used when the media is a track or a part of
+            a music album:
+
+            track:          Title of the track.
+            track_number:   Number of the track within an album or a disc, as an integer.
+            track_id:       Id of the track (useful for custom indexing, e.g. 6.iii).
+            artists:        List of artists of the track.
+            composers:      List of composers of the piece.
+            genres:         List of genres of the track.
+            album:          Title of the album the track belongs to.
+            album_type:     Type of the album (e.g. "Demo", "Full-length", "Split", "Compilation", etc).
+            album_artists:  List of all artists appeared on the album.
+                            E.g. ["Ash Borer", "Fell Voices"] or ["Various Artists"].
+                            Useful for splits and compilations.
+            disc_number:    Number of the disc or other physical medium the track belongs to,
+                            as an integer.
+            '''
             if item_id[:2] == 'VL':  # Youtube music VL channels have an equivalent playlist
                 return self.url_result(
                     f'https://music.youtube.com/playlist?list={item_id[2:]}', YoutubeTabIE, item_id[2:])
