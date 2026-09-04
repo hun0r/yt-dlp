@@ -15,7 +15,7 @@ def traverse(data, condition, path=()):
     if iterator is None:
         try:
             if condition(data):
-                return (*path, data)
+                return ((*path, data), )
             return None
         except Exception:
             return None
@@ -24,7 +24,7 @@ def traverse(data, condition, path=()):
     return list(filter(lambda x: x is not None, paths))
 
 
-query = 2015
+query = 'Bearn'
 for i in traverse(jsondata, lambda x: query in x):
     prefix, _, suffix = i[-1].partition(query)
     line = f'or traverse_obj(data, {i[:-1]})'
