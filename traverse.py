@@ -24,7 +24,7 @@ def traverse(data, condition, path=()):
     return list(filter(lambda x: x is not None, paths))
 
 
-query = 'Bearn'
+query = 'LoahdnBCHYY'
 for i in traverse(jsondata, lambda x: query in x):
     prefix, _, suffix = i[-1].partition(query)
     line = f'or traverse_obj(data, {i[:-1]})'
